@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>HMO Doctor Finder</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header>
+  <div class="brand">✚ <span>HMO Doctor Finder</span></div>
+  <div class="api-status" id="apiStatus">Checking API…</div>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <span class="kicker">Healthcare Access Demo</span>
+      <h1>Find a doctor covered by your HMO.</h1>
+      <p>Search a demo provider network by HMO, specialty, location, patient type, and teleconsult availability.</p>
+    </div>
+    <div class="hero-card"><strong>Full-stack MVP</strong><span>FastAPI backend</span><span>Live API filtering</span><span>Appointment requests</span></div>
+  </section>
+  <section class="search-card">
+    <div class="grid">
+      <label>HMO<select id="hmo"><option value="">Any HMO</option></select></label>
+      <label>Specialty<select id="specialty"><option value="">Any Specialty</option></select></label>
+      <label>Location<select id="location"><option value="">Any Location</option></select></label>
+      <label>Patient<select id="patientType"><option value="adult">Adult</option><option value="child">Child</option><option value="senior">Senior</option></select></label>
+      <label>Minimum rating<select id="rating"><option value="0">Any</option><option value="4.5">4.5+</option><option value="4.8">4.8+</option></select></label>
+      <label>Minimum experience<select id="experience"><option value="0">Any</option><option value="5">5+ years</option><option value="10">10+ years</option><option value="15">15+ years</option></select></label>
+    </div>
+    <div class="actions">
+      <label class="check"><input type="checkbox" id="teleconsult"> Teleconsult only</label>
+      <label class="check"><input type="checkbox" id="verified"> Verified HMO acceptance only</label>
+      <button id="searchBtn">Find Doctors</button>
+    </div>
+  </section>
+  <section class="results-head"><div><span class="kicker">Results</span><h2 id="count">Doctors</h2></div><div class="note">Sample data only — production use requires real HMO/provider verification.</div></section>
+  <section id="list" class="doctor-list"></section>
+</main>
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="x">×</button><span class="kicker">Appointment Request</span><h2 id="doctorName"></h2><p id="doctorMeta"></p><div class="grid two"><label>Patient name<input id="patientName" placeholder="Juan Dela Cruz"/></label><label>HMO<select id="apptHmo"></select></label><label>Membership no.<input id="memberNo" placeholder="Demo only"/></label><label>Preferred date<input id="date" type="date"/></label><label>Consultation<select id="consultType"><option>Clinic</option><option>Teleconsult</option></select></label></div><button id="submitAppt" class="full">Submit Request</button><div id="success" class="success hidden"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
